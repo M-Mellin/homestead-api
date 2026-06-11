@@ -1,0 +1,16 @@
+services:
+  server:
+    image: ${IMAGE_NAME}:latest
+
+    environment:
+      - NODE_ENV=production
+
+    volumes:
+      - ${HOME}/secrets/serviceAccountKey.json:/usr/src/app/serviceAccountKey.json:ro
+      - ${HOME}/secrets/private-key.pem:/usr/src/app/private-key.pem:ro
+      - ${HOME}/secrets/public-key.pem:/usr/src/app/public-key.pem:ro
+
+    ports:
+      - "${PORT:-4000}:${PORT:-4000}"
+
+    restart: always

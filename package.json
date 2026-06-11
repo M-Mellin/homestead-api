@@ -1,0 +1,51 @@
+{
+  "name": "homestead-api",
+  "version": "1.0.0",
+  "description": "The homestead API is used for ...",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon --inspect -r dotenv/config src/server.js",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix",
+    "docker:dev": "docker compose -f docker-compose.yml -f docker-compose.development.yml up --build",
+    "docker:prod": "docker compose -f docker-compose.yml -f docker-compose.production.yml up -d --build",
+    "docker:down": "docker compose down",
+    "test": "cross-env NODE_ENV=test node --experimental-vm-modules -r dotenv/config node_modules/jest/bin/jest.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.lnu.se:1dv613/student/mm225vh/workspace/wellaware-api.git"
+  },
+  "keywords": [],
+  "author": "Mattias Mellin <mm225vh@student.lnu.se> <mattias.mellin@gmail.com>",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@lnu/json-js-cycle": "^2.0.5",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-http-context": "^1.2.4",
+    "firebase-admin": "^13.8.0",
+    "helmet": "^6.0.0",
+    "http-errors": "^2.0.0",
+    "mongoose": "^9.1.5",
+    "morgan": "^1.10.0",
+    "node-cron": "^4.2.1",
+    "swagger-jsdoc": "^6.3.0",
+    "swagger-ui-express": "^5.0.1",
+    "winston": "^3.11.0",
+    "winston-mongodb": "^5.1.1",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "@lnu/eslint-config": "^1.1.10",
+    "cross-env": "^10.1.0",
+    "dotenv": "^16.0.3",
+    "eslint": "^8.57.1",
+    "jest": "^30.3.0",
+    "nodemon": "^3.1.11",
+    "supertest": "^7.2.2"
+  }
+}

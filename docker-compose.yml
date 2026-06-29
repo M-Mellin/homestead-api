@@ -2,13 +2,10 @@ services:
   server:
     environment:
       - PORT=${PORT:-4000}
-      - DB_CONNECTION_STRING=mongodb://admin:${MONGO_PASSWORD}@db:27017/wellaware?authSource=admin
+      - DB_CONNECTION_STRING=mongodb://admin:${MONGO_PASSWORD}@db:27017/homestead?authSource=admin
       - JWT_PRIVATE_KEY=./private-key.pem
       - JWT_PUBLIC_KEY=./public-key.pem
       - FIREBASE_SERVICE_ACCOUNT_PATH=/usr/src/app/serviceAccountKey.json
-      - OTA_ADMIN_SECRET=${OTA_ADMIN_SECRET}
-      - OTA_DOWNLOAD_TOKEN=${OTA_DOWNLOAD_TOKEN}
-      - API_BASE_URL=${API_BASE_URL}
     depends_on:
       - db
 

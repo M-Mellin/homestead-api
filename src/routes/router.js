@@ -11,7 +11,11 @@
 import express from 'express'
 import http from 'node:http'
 
+import { router as userRouter } from './api/v1/userRouter.js'
+
 export const router = express.Router()
+
+router.use('/api/v1/users', userRouter)
 
 /**
  * Catch-all route for undefined endpoints.
